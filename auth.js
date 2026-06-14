@@ -24,7 +24,4 @@ function handleLogin(_user) {
         popupLogin();
     }
 }
-/**************************************************************/
-//Write the scores
-/**************************************************************/
-let displayName = GLOBAL_user.displayName;
+

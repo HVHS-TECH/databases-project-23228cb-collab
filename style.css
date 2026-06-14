@@ -1,6 +1,6 @@
 body {
   background-color: #0A3161;
-  color: #B31942;
+  color: #ffffff;
   font-family: Arial, sans-serif;
   padding: 2rem;
 }
@@ -8,20 +8,20 @@ body {
 .container {
   max-width: 600px;
   margin: auto;
-  background-color: #0A3161;
+  background-color: #072a55;
   padding: 2rem;
   border-radius: 12px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 h1 {
-  color: #B31942;
+  color: #ffffff;
   font-size: 2.5rem;
   margin-bottom: 0;
 }
 
 h2 {
-  color: #B31942;
+  color: #ffffff;
   font-size: 1.2rem;
   margin-top: 0.2rem;
 }
@@ -42,15 +42,15 @@ input {
 button {
   margin-top: 1.5rem;
   padding: 0.7rem 1.2rem;
-  background-color: #FFFF;
-  color: #0A3161;
+  background-color: #074490;
+  color: #ffffff;
   border: none;
   border-radius: 6px;
   cursor: pointer;
 }
 
 button:hover {
-  background-color: #B31942;
+  background-color: #0a063f;
 }
 
 #statusMessage {
