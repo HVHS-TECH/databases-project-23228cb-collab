@@ -19,6 +19,23 @@
 </head>
 
 <body>
+    
+    <div class="container">
+    <h1>Log in/ Sign up</h1>
+    <br>
+    <button onclick=' location.href="../index.html"'>Home</button>
+    <button onclick="authenticate()">login/sign up with google</button>
 
+    <form id="fruitForm">
+      <label for="name">Your Name</label>
+      <input type="text" id="usrName" name="usrName" required />
+
+      <label for="favoriteFruit">Your Age</label>
+      <input type="text" id="usrAge" name="usrAge" required />
+      <button onclick="writeUsrData()" type="button">sign up</button>
+    </form>
+
+</div>
+<script src="authenticate.js"></script>
 </body>    
 </html>

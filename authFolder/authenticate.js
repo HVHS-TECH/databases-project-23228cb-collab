@@ -1,0 +1,49 @@
+const HTML_OUTPUT =document.getElementById('statusMessage')
+/***************************************************************/
+//Google sign in
+/**************************************************************/
+var GLOBAL_user;  // Google's user object
+function authenticate() {
+    // authenticate with Google
+    firebase.auth().onAuthStateChanged(handleLogin);
+}
+function popupLogin() {
+    var provider = new firebase.auth.GoogleAuthProvider();
+
+    firebase.auth().signInWithPopup(provider).then((result) => {
+        GLOBAL_user = result.user;  // Save the user details object to a global variable
+        console.log("User has logged in")
+    });
+}
+function handleLogin(_user) {
+    if (_user) {
+        GLOBAL_user = _user;//Save the user details object to a global variable
+        console.log(_user.displayName + " is logged in")
+
+    } else {
+        console.log("User is NOT logged in - Starting the popup process")
+        popupLogin();
+    }
+}
+/**************************************************************/
+//write the data
+/**************************************************************/
+
+function writeUsrData() {
+    let UID = GLOBAL_user.uid
+    let DisName = GLOBAL_user.displayName
+   
+    const usrName = document.getElementById("usrName").value
+    const usrAge = document.getElementById("usrAge").value
+    console.log(usrName)
+    console.log(usrAge)
+    console.log(DisName)
+    firebase.database().ref('/userInfo/' + UID).set(
+    {
+      Name: usrName,
+      Display_Name: DisName,
+      Age: usrAge,
+    }
+  )
+
+};
