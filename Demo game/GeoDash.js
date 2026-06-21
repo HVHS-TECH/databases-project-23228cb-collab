@@ -21,38 +21,6 @@ function endGame(_player, _obstacle){
 
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 const SCREEN_WIDTH = 400;
 const SCREEN_HEIGHT = 200;
 const PLAYER_HEIGHT = 25;
@@ -164,6 +132,7 @@ function endScreen(){
     text("your score was: "+score, 50, 110);
     textSize(14);
     text("press any key to restart", 50, 150);
+    localStorage.setItem("geoScore", score)
 }
 
 function resetGame(){
