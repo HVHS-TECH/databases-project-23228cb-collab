@@ -32,17 +32,17 @@ function handleLogin(_user) {
 function writeUsrData() {
     let UID = GLOBAL_user.uid
     let DisName = GLOBAL_user.displayName
-   
+    let PicURL = GLOBAL_user.photoURL
+    let usrEmail = GLOBAL_user.email
     const usrName = document.getElementById("usrName").value
     const usrAge = document.getElementById("usrAge").value
-    console.log(usrName)
-    console.log(usrAge)
-    console.log(DisName)
     firebase.database().ref('/userInfo/' + UID).set(
     {
       Name: usrName,
       Display_Name: DisName,
       Age: usrAge,
+      PhotoId: PicURL,
+      Email: usrEmail,
     }
   )
 
