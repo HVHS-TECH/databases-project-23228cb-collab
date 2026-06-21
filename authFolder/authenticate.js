@@ -2,9 +2,10 @@
 //Google sign in
 /**************************************************************/
 var GLOBAL_user;  // Google's user object
+var authenticationListener
 function authenticate() {
     // authenticate with Google
-    firebase.auth().onAuthStateChanged(handleLogin);
+    authenticationListener = firebase.auth().onAuthStateChanged(handleLogin);
 }
 function popupLogin() {
     var provider = new firebase.auth.GoogleAuthProvider();
@@ -25,6 +26,7 @@ function handleLogin(_user) {
         popupLogin();
     }
 }
+
 /**************************************************************/
 //write the data
 /**************************************************************/
@@ -45,6 +47,13 @@ async function writeUsrData() {
       Email: usrEmail,
     }
   )
+    firebase.database().ref('/geoDash/'+ UID ).set(
+        {
+            Name:usrName,
+            Score:0,
+        }
+    )
+
     alert("sign in successful")
     window.location.href = '../index.html'
     localStorage.setItem('UId', UID)

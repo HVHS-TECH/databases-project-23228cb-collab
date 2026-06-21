@@ -10,7 +10,7 @@ function checkScore(snapshot){
     if(dataScore===null){
         firebase.database().ref('/userInfo/' + UID ).once('value', writeScore)
     }
-    if(dataScore<score){
+    if(dataScore>score){
         firebase.database().ref('/userInfo/' + UID ).once('value', writeScore)
     }
 };

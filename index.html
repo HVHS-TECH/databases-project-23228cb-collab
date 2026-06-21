@@ -18,10 +18,11 @@
     <script src="setup.js"></script>
 </head>
 
-<body>
+<body onload="pageLoad()">
     <div class="container">
     <h1>Cedric's Games Website</h1>
     <button id="authButton" onclick=" location.href='authFolder/authentication.html'">login/sign up with google</button>
+    <button id="logout" onclick='logOut()'>Log Out</button>
     <br>
     <button id="lawnButton" onclick="  location.href='lazyLawnsGamePage/gamePageMower.html'" >lazy lawns</button>
     <br>
