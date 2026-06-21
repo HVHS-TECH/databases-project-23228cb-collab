@@ -1,4 +1,3 @@
-const HTML_OUTPUT =document.getElementById('statusMessage')
 /***************************************************************/
 //Google sign in
 /**************************************************************/
@@ -16,10 +15,11 @@ function popupLogin() {
     });
 }
 function handleLogin(_user) {
+    const HTML_OUTPUT =document.getElementById('statusMessage')
     if (_user) {
         GLOBAL_user = _user;//Save the user details object to a global variable
         console.log(_user.displayName + " is logged in")
-
+        HTML_OUTPUT.innerHTML = GLOBAL_user.displayName + " is logged in"
     } else {
         console.log("User is NOT logged in - Starting the popup process")
         popupLogin();
@@ -29,14 +29,14 @@ function handleLogin(_user) {
 //write the data
 /**************************************************************/
 
-function writeUsrData() {
+async function writeUsrData() {
     let UID = GLOBAL_user.uid
     let DisName = GLOBAL_user.displayName
     let PicURL = GLOBAL_user.photoURL
     let usrEmail = GLOBAL_user.email
     const usrName = document.getElementById("usrName").value
     const usrAge = document.getElementById("usrAge").value
-    firebase.database().ref('/userInfo/' + UID).set(
+    await firebase.database().ref('/userInfo/' + UID).set(
     {
       Name: usrName,
       Display_Name: DisName,
@@ -45,5 +45,7 @@ function writeUsrData() {
       Email: usrEmail,
     }
   )
-
+    alert("sign in successful")
+    window.location.href = '../index.html'
+    localStorage.setItem('UId', UID)
 };
