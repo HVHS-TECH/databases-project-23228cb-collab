@@ -133,7 +133,7 @@ function endScreen(){
     textSize(14);
     text("press any key to restart", 50, 150);
     localStorage.setItem("geoScore", score)
-    pageLoad()
+    onLoad()
 }
 
 function resetGame(){
