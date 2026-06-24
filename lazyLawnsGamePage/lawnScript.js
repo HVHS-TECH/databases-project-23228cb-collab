@@ -1,5 +1,5 @@
 const UID = localStorage.getItem('UId');
-const score = localStorage.getItem('geoScore');
+const score = localStorage.getItem('lawnScore');
 function onLoad(){
     console.log(UID)
     firebase.database().ref('/geoDash/' + UID).once('value',checkScore)
