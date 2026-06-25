@@ -269,6 +269,7 @@ function drawEnd() {
 	//restart button
 	if (kb.pressed('enter')) {
 		gameState = "menu";
+		onLoad();
 
 	};
 	//sprite visability

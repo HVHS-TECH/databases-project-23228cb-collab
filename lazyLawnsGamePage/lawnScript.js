@@ -1,5 +1,4 @@
 const UID = localStorage.getItem('UId');
-const score = localStorage.getItem('lawnScore');
 function onLoad(){
     console.log(UID)
     firebase.database().ref('/geoDash/' + UID).once('value',checkScore)
@@ -8,8 +7,9 @@ function onLoad(){
 function checkScore(snapshot){
     const dataScore = snapshot.val()['Score']
     console.log(dataScore)
-    if(dataScore<score){
+    if(dataScore<timer){
         firebase.database().ref('/userInfo/' + UID ).once('value', writeScore)
+        console.log("writing")
     }
 };
 
@@ -18,7 +18,7 @@ function writeScore(snapshot){
     firebase.database().ref('/geoDash/'+ UID ).set(
         {
             Name:Name,
-            Score:score,
+            Score:timer,
         }
     )
 }

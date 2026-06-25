@@ -20,10 +20,20 @@ function handleLogin(_user) {
     const HTML_OUTPUT =document.getElementById('statusMessage')
     if (_user) {
         GLOBAL_user = _user;//Save the user details object to a global variable
-        console.log(_user.displayName + " is logged in")
-        HTML_OUTPUT.innerHTML = GLOBAL_user.displayName + " is logged in"
-}
+        console.log(_user.displayName + " is logged in")   
+        document.getElementById("authButton").style.display ="none"
+        document.getElementById("logOutButton").style.display = ""
+        //HTML_OUTPUT.innerHTML = GLOBAL_user.displayName + " is logged in"
+    }
+    else{
+        document.getElementById("authButton").style.display = ""
+        document.getElementById("logOutButton").style.display = "none"
+    }
 };
+
+function logout(){
+    firebase.auth().signOut();
+}
 /**************************************************************/
 //write the data
 /**************************************************************/
