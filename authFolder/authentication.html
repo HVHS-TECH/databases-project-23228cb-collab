@@ -18,14 +18,14 @@
     <script src="../setup.js"></script>
 </head>
 
-<body>
+<body onload="authenticate()">
     
     <div class="container">
     <h1>Log in/ Sign up</h1>
     <br>
     <button onclick=' location.href="../index.html"'>Home</button>
     <br>
-    <button onclick="authenticate()">login/sign up with google</button>
+    <button onclick="popupLogin()">login/sign up with google</button>
 
     <form id="fruitForm">
       <p id="statusMessage"></p>

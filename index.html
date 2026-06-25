@@ -18,7 +18,7 @@
     <script src="setup.js"></script>
 </head>
 
-<body>
+<body onload="authenticate()">
     <div class="container">
     <h1>Cedric's Games Website</h1>
     <button id="authButton" onclick=" location.href='authFolder/authentication.html'">login/sign up with google</button>
@@ -28,6 +28,7 @@
     <button id="geoButton" onclick=" location.href='geoGamePage/gamePageGeo.html' ">Geo Dash</button>
 </div>
 <script src="script.js"></script>
+<script src="authFolder/authenticate.js"></script>
 </body>
 
 </html>

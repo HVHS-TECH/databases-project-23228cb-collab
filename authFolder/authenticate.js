@@ -7,26 +7,23 @@ function authenticate() {
     // authenticate with Google
     authenticationListener = firebase.auth().onAuthStateChanged(handleLogin);
 }
+
 function popupLogin() {
     var provider = new firebase.auth.GoogleAuthProvider();
-
     firebase.auth().signInWithPopup(provider).then((result) => {
         GLOBAL_user = result.user;  // Save the user details object to a global variable
         console.log("User has logged in")
     });
 }
+
 function handleLogin(_user) {
     const HTML_OUTPUT =document.getElementById('statusMessage')
     if (_user) {
         GLOBAL_user = _user;//Save the user details object to a global variable
         console.log(_user.displayName + " is logged in")
         HTML_OUTPUT.innerHTML = GLOBAL_user.displayName + " is logged in"
-    } else {
-        console.log("User is NOT logged in - Starting the popup process")
-        popupLogin();
-    }
 }
-
+};
 /**************************************************************/
 //write the data
 /**************************************************************/
@@ -53,7 +50,12 @@ async function writeUsrData() {
             Score:0,
         }
     )
-
+    firebase.database().ref('/lazyLawns/'+ UID ).set(
+        {
+            Name:usrName,
+            Score:0,
+        }
+    )
     alert("sign in successful")
     window.location.href = '../index.html'
     localStorage.setItem('UId', UID)
