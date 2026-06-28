@@ -266,10 +266,11 @@ function drawEnd() {
 	text('Your Time Was ' + timer + ' Seconds', canvasWidth / 8, 200);
 	textSize(40);
 	text('Press Enter To Restart', canvasWidth / 8, 400);
+	onLoad();
 	//restart button
 	if (kb.pressed('enter')) {
 		gameState = "menu";
-		onLoad();
+		
 
 	};
 	//sprite visability
