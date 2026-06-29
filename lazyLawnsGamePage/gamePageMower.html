@@ -18,12 +18,14 @@
     <script src="../setup.js"></script>
 </head>
 
-<body onload="onLoad()">
+<body onload="readScores();">
     <div class="container">
     <h1>Lazy Lawns</h1>
     <button onclick= ' location.href="../lazyLawns/index.html"'>Play Game</button>
     <button onclick=' location.href="../index.html"'>Home</button>
-    <button onclick="readScores()">test</button>
+    <br>
+    <p id="statusMessage"></p>
+    
     </div>
     <script src="lawnScript.js"></script>
     <script src="../lazyLawns/grass.js"></script>

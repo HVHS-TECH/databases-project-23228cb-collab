@@ -1,4 +1,4 @@
-const UID = localStorage.getItem('UId')
-
-
-//  window.location.href = 'authFolder/authentication.html'
+const HTML_Img =document.getElementById('profilePic')
+const profPic = localStorage.getItem('photoPic')
+HTML_Img.src = 'profPic'
+console.log(profPic)

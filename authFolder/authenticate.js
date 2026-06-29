@@ -45,6 +45,7 @@ async function writeUsrData() {
     let usrEmail = GLOBAL_user.email
     const usrName = document.getElementById("usrName").value
     const usrAge = document.getElementById("usrAge").value
+    if (usrAge>=13){
     await firebase.database().ref('/userInfo/' + UID).set(
     {
       Name: usrName,
@@ -69,4 +70,9 @@ async function writeUsrData() {
     alert("sign in successful")
     window.location.href = '../index.html'
     localStorage.setItem('UId', UID)
+    localStorage.setItem('photoPic',PicURL)
+}
+else{
+    document.getElementById('ageError').innerHTML = "please change age to an age greater than or equal to 13"
+}
 };
