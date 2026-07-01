@@ -1,15 +1,15 @@
 const UID = localStorage.getItem('UId');
 function onLoad(){
-    console.log(UID)
+  //  console.log(UID)
     firebase.database().ref('/geoDash/' + UID).once('value',checkScore)
     
 };
 function checkScore(snapshot){
     const dataScore = snapshot.val()['Score']
-    console.log(dataScore)
+   // console.log(dataScore)
     if(dataScore<score){
         firebase.database().ref('/userInfo/' + UID ).once('value', writeScore)
-        console.log("writing")
+       // console.log("writing")
     }
 };
 

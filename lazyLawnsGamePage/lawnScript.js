@@ -7,7 +7,7 @@ function onLoad(){
 };
 function checkScore(snapshot){
     const dataScore = snapshot.val()['Score']
-    console.log(dataScore)
+    //console.log(dataScore)
     if(dataScore>timer){
         firebase.database().ref('/userInfo/' + UID ).once('value', writeScore)
       //  console.log("writing")
