@@ -1,20 +1,18 @@
 const UID = localStorage.getItem('UId');
 function onLoad(){
-    
-    //console.log(UID)
     firebase.database().ref('/lazyLawns/' + UID).once('value',checkScore)
     
 };
 function checkScore(snapshot){
     const dataScore = snapshot.val()['Score']
-    //console.log(dataScore)
+   
     if(dataScore>timer){
         firebase.database().ref('/userInfo/' + UID ).once('value', writeScore)
-      //  console.log("writing")
+      
     };
     if(dataScore===0){
         firebase.database().ref('/userInfo/' + UID ).once('value', writeScore)
-       // console.log("writing")
+      
     };
 };
 
@@ -29,7 +27,9 @@ function writeScore(snapshot){
 }
 function readScores(){
     firebase.database().ref('/lazyLawns').once('value', displayScores)
-
+    const HTML_Img =document.getElementById('profilePic')
+    const profPic = localStorage.getItem('photoPic')
+    HTML_Img.src = profPic
 };
 
 function displayScores(snapshot){

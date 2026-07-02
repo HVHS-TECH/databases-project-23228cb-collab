@@ -23,7 +23,7 @@ function handleLogin(_user) {
         console.log(_user.displayName + " is logged in")   
         document.getElementById("authButton").style.display ="none"
         document.getElementById("logOutButton").style.display = ""
-        //HTML_OUTPUT.innerHTML = GLOBAL_user.displayName + " is logged in"
+       
     }
     else{
         document.getElementById("authButton").style.display = ""
@@ -55,6 +55,7 @@ async function writeUsrData() {
       Email: usrEmail,
     }
   )
+  
     firebase.database().ref('/geoDash/'+ UID ).set(
         {
             Name:usrName,
